@@ -1,5 +1,5 @@
 ---
-name: analise_acoes
+name: stock_analysis
 description: Coleta dados históricos e atuais de ações (tickers) e realiza uma análise técnica/fundamentalista básica.
 ---
 # Skill de Análise de Ações (yfinance)
@@ -9,9 +9,9 @@ description: Coleta dados históricos e atuais de ações (tickers) e realiza um
 
 ## Protocolo de Execução
 1. **Identificação do Ticker:** Identifique o ticker da ação mencionada. Se o usuário esquecer o código (ex: "Petrobras"), tente deduzir ou adicione o sufixo `.SA` se for uma ação brasileira (ex: `PETR4.SA`).
-2. **Coleta de Dados:** Chame a ferramenta `coletar_dados_yfinance` passando o ticker identificado.
+2. **Coleta de Dados:** Chame a ferramenta `collect_yfinance_data` passando o ticker identificado.
 3. **Análise de Regras:** Com o JSON retornado pela ferramenta, você deve avaliar:
-   - **Preço vs Média:** Se o `preco_atual` estiver abaixo da `media_50_dias`, mencione que a ação está em tendência de baixa no curto prazo. Se estiver acima, tendência de alta.
+   - **Preço vs Média:** Se o `current_price` estiver abaixo da `fifty_day_average`, mencione que a ação está em tendência de baixa no curto prazo. Se estiver acima, tendência de alta.
    - **Volume:** Se o volume atual for muito maior que a média, destaque que há alto interesse institucional no papel hoje.
 4. **Alerta de Isenção:** Você DEVE incluir o aviso legal de que isso não é uma recomendação oficial de investimento.
 

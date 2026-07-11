@@ -1,5 +1,5 @@
 ---
-name: analise_sentimento
+name: sentiment_analysis
 description: Analisa feedbacks, críticas ou elogios de clientes, classificando o tom emocional e definindo ações de retenção.
 ---
 # Skill de Análise de Sentimento e Retenção
@@ -10,7 +10,7 @@ description: Analisa feedbacks, críticas ou elogios de clientes, classificando 
 ## Protocolo de Execução
 1. **Classificação:** Classifique o texto do usuário em um dos três sentimentos: [POSITIVO, NEGATIVO, NEUTRO].
 2. **Ação para feedback NEGATIVO:** 
-   - Você DEVE acionar a ferramenta `buscar_cupons_desconto` para gerar um código promocional de compensação.
+   - Você DEVE acionar a ferramenta `fetch_discount_coupon` para gerar um código promocional de compensação.
    - Escreva uma resposta empática pedindo desculpas pelo ocorrido e apresente o cupom.
 3. **Ação para feedback POSITIVO:**
    - Não chame ferramentas. Apenas agradeça de forma calorosa e entusiasmada, reforçando que o feedback é muito importante.

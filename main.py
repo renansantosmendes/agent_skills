@@ -2,25 +2,31 @@ import sys
 sys.stdout.reconfigure(encoding="utf-8")
 
 from deepagents import create_deep_agent
-# Importa as ferramentas de suas respectivas pastas
-from skills.analise_acoes.tools import coletar_dados_yfinance
-from skills.analise_sentimento.tools import buscar_cupons_desconto
-from dotenv import load_dotenv
-load_dotenv()  # Carrega as variáveis de ambiente do arquivo .env
+from skills.stock_analysis.tools import collect_yfinance_data
+from skills.sentiment_analysis.tools import fetch_discount_coupon
+from skills.fundamental_analysis.tools import collect_fundamental_indicators
+from skills.technical_analysis.tools import collect_technical_indicators
+from skills.asset_comparison.tools import compare_assets
 
-# Inicializa o agente passando a lista de TODAS as ferramentas disponíveis
+from dotenv import load_dotenv
+load_dotenv()
+
 agent = create_deep_agent(
     model="openai:gpt-5-nano",
-    tools=[coletar_dados_yfinance, buscar_cupons_desconto],
-    skills=["./skills/"] # Varre a pasta raiz de skills e acha os dois SKILL.md
+    tools=[
+        collect_yfinance_data,
+        fetch_discount_coupon,
+        collect_fundamental_indicators,
+        collect_technical_indicators,
+        compare_assets,
+    ],
+    skills=["./skills/"]
 )
 
+inputs = {"messages": [{"role": "user", "content": "PETR4 está cara ou barata pelos fundamentos?"}]}
+# inputs = {"messages": [{"role": "user", "content": "Me dá o RSI e MACD da VALE3"}]}
+# inputs = {"messages": [{"role": "user", "content": "Compara PETR4, VALE3 e ITUB4 pra mim"}]}
 
-inputs = {"messages": [{"role": "user", "content": "O produto chegou todo quebrado, estou muito chateado!"}]}
-
-# inputs = {"messages": [{"role": "user", "content": "Veja o preço da VALE3 para mim?"}]}
-
-# inputs = {"messages": [{"role": "user", "content": "Dá uma olhada em como tá a Petrobras hoje e me diz se vale a pena comprar"}]}
 config = {"configurable": {"thread_id": "investidor_01"}}
 
 for chunk in agent.stream(inputs, config):
