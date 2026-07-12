@@ -14,8 +14,8 @@ def collect_yfinance_data(ticker: str) -> str:
         stock = yf.Ticker(ticker)
         info = stock.info
 
-        market_time = info.get("regularMarketTime")
-        collected_at = datetime.fromtimestamp(market_time).isoformat() if market_time else None
+        regular_market_time = info.get("regularMarketTime")
+        market_time = datetime.fromtimestamp(regular_market_time).isoformat() if regular_market_time else None
 
         filtered_data = {
             "ticker": ticker,
@@ -26,7 +26,7 @@ def collect_yfinance_data(ticker: str) -> str:
             "current_volume": info.get("volume"),
             "average_volume": info.get("averageVolume"),
             "currency": info.get("currency", "BRL"),
-            "collected_at": collected_at
+            "market_time": market_time
         }
 
         if filtered_data["current_price"] and filtered_data["previous_close"]:
