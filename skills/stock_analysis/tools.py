@@ -1,5 +1,6 @@
 import yfinance as yf
 import json
+from datetime import datetime
 from langchain_core.tools import tool
 
 
@@ -13,6 +14,9 @@ def collect_yfinance_data(ticker: str) -> str:
         stock = yf.Ticker(ticker)
         info = stock.info
 
+        market_time = info.get("regularMarketTime")
+        collected_at = datetime.fromtimestamp(market_time).isoformat() if market_time else None
+
         filtered_data = {
             "ticker": ticker,
             "name": info.get("longName", "N/A"),
@@ -21,7 +25,8 @@ def collect_yfinance_data(ticker: str) -> str:
             "fifty_day_average": info.get("fiftyDayAverage"),
             "current_volume": info.get("volume"),
             "average_volume": info.get("averageVolume"),
-            "currency": info.get("currency", "BRL")
+            "currency": info.get("currency", "BRL"),
+            "collected_at": collected_at
         }
 
         if filtered_data["current_price"] and filtered_data["previous_close"]:
