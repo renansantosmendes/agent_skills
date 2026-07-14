@@ -14,7 +14,7 @@ load_dotenv()
 from deepagents.backends.filesystem import FilesystemBackend
 
 backend = FilesystemBackend(
-    root_dir="/content",
+    root_dir=".",
     virtual_mode=False,   # evita o warning
 )
 
@@ -27,7 +27,7 @@ agent = create_deep_agent(
         collect_technical_indicators,
         compare_assets,
     ],
-    skills=["./skills/"],
+    skills=["skills"],
     backend=backend,
 )
 
