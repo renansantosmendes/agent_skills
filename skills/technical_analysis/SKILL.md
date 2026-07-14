@@ -1,12 +1,12 @@
 ---
-name: technical_analysis
+name: technical-analysis
 description: Realiza análise técnica de gráfico (médias móveis, RSI, MACD) para identificar momentum, sobrecompra/sobrevenda e cruzamentos de tendência.
 ---
 # Skill de Análise Técnica
 
 ## Quando Usar
 - Sempre que o usuário pedir análise de "gráfico", "tendência técnica", "RSI", "MACD", "média móvel", "momento de compra/venda" ou "sinal técnico" de uma ação.
-- Não usar para pedidos de indicadores de balanço/fundamentos (isso é `fundamental_analysis`) nem para cotação simples do dia (isso é `stock_analysis`).
+- Não usar para pedidos de indicadores de balanço/fundamentos (isso é `fundamental-analysis`) nem para cotação simples do dia (isso é `stock-analysis`).
 
 ## Protocolo de Execução
 1. **Identificação do Ticker:** Identifique o ticker mencionado, adicionando `.SA` se for ação brasileira e o sufixo não tiver sido informado.

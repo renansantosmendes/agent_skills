@@ -1,5 +1,5 @@
 ---
-name: stock_analysis
+name: stock-analysis
 description: Coleta dados históricos e atuais de ações (tickers) e realiza uma análise técnica/fundamentalista básica.
 ---
 # Skill de Análise de Ações (yfinance)

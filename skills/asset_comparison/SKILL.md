@@ -1,12 +1,12 @@
 ---
-name: asset_comparison
+name: asset-comparison
 description: Compara dois ou mais ativos lado a lado em preço, variação, P/L e dividend yield, apontando qual parece mais atrativo no critério pedido.
 ---
 # Skill de Comparação de Ativos
 
 ## Quando Usar
 - Sempre que o usuário mencionar duas ou mais ações na mesma pergunta e pedir para "comparar", "qual é melhor", "qual vale mais a pena" ou "qual pagou mais dividendo".
-- Se apenas um ticker for mencionado, use `stock_analysis`, `fundamental_analysis` ou `technical_analysis` em vez desta skill.
+- Se apenas um ticker for mencionado, use `stock-analysis`, `fundamental-analysis` ou `technical-analysis` em vez desta skill.
 
 ## Protocolo de Execução
 1. **Identificação dos Tickers:** Liste todos os tickers mencionados, adicionando `.SA` para ações brasileiras sem sufixo.

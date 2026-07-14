@@ -1,12 +1,12 @@
 ---
-name: fundamental_analysis
+name: fundamental-analysis
 description: Avalia a saúde financeira de uma empresa a partir de indicadores fundamentalistas (P/L, P/VP, ROE, margens, endividamento) para julgar se está cara, barata ou saudável.
 ---
 # Skill de Análise Fundamentalista
 
 ## Quando Usar
 - Sempre que o usuário perguntar se uma ação está "cara ou barata", pedir para avaliar os "fundamentos", "saúde financeira", "balanço" ou comparar indicadores como P/L, P/VP, ROE, margem ou dívida de uma empresa.
-- Não usar para perguntas apenas sobre preço/variação do dia (isso é `stock_analysis`) nem sobre médias móveis/tendência gráfica (isso é `technical_analysis`).
+- Não usar para perguntas apenas sobre preço/variação do dia (isso é `stock-analysis`) nem sobre médias móveis/tendência gráfica (isso é `technical-analysis`).
 
 ## Protocolo de Execução
 1. **Identificação do Ticker:** Identifique o ticker mencionado. Se faltar o sufixo e for ação brasileira, adicione `.SA`.

@@ -11,6 +11,13 @@ from skills.asset_comparison.tools import compare_assets
 from dotenv import load_dotenv
 load_dotenv()
 
+from deepagents.backends.filesystem import FilesystemBackend
+
+backend = FilesystemBackend(
+    root_dir="/content",
+    virtual_mode=False,   # evita o warning
+)
+
 agent = create_deep_agent(
     model="openai:gpt-5-nano",
     tools=[
@@ -20,7 +27,8 @@ agent = create_deep_agent(
         collect_technical_indicators,
         compare_assets,
     ],
-    skills=["./skills/"]
+    skills=["./skills/"],
+    backend=backend,
 )
 
 inputs = {"messages": [{"role": "user", "content": "PETR4 está cara ou barata pelos fundamentos?"}]}

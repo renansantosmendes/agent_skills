@@ -1,5 +1,5 @@
 ---
-name: sentiment_analysis
+name: sentiment-analysis
 description: Analisa feedbacks, críticas ou elogios de clientes, classificando o tom emocional e definindo ações de retenção.
 ---
 # Skill de Análise de Sentimento e Retenção
